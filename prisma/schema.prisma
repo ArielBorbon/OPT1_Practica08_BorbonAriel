@@ -18,7 +18,7 @@ datasource db {
 model Clase {
   id          Int       @id @default(autoincrement())
   nombre      String    @db.VarChar(80)
-  descripcion String    @db.VarChar(255)
+  descripcion String?    @db.VarChar(255)
   horarios    Horario[] 
 
   @@map("clases")
@@ -41,7 +41,7 @@ model Horario {
 model Miembro {
   id  Int    @id @default(autoincrement())
   nombre      String    @db.VarChar(100)
-  correo String    @db.VarChar(150)
+  correo        String        @unique @db.VarChar(150)
   membresia String    @db.VarChar(20)
   activo Boolean @default(true)
   inscripciones Inscripcion[]
